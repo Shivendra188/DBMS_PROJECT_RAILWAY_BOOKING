@@ -1,8 +1,10 @@
+
 // 🚀 Railway Reservation Backend Server
-const express = require("express");
-const mysql = require("mysql2");
-const cors = require("cors");
-const bodyParser = require("body-parser");
+import express from "express";
+import cors from "cors";
+import mysql from "mysql2";
+
+import bodyParser from "body-parser";
 
 
 const app = express();
@@ -19,14 +21,27 @@ const db = mysql.createConnection({
 
 db.connect(err => {
   if (err) {
-    console.error("❌ Database connection failed:", err);
+    console.error("❌ Database connection failed:", err.message);
   } else {
     console.log("✅ Connected to MySQL Database!");
   }
 });
-const result = await db.promise().query("DELETE FROM passengers WHERE id = ?", [id]);
-console.log(result);
-
+app.delete("/passengers/:id", async (req, res) => {
+  try {
+    const { id } = req.params;  // <- get id from URL
+    const [result] = await db.promise().query(
+      "DELETE FROM passengers WHERE id = ?",
+      [id]
+    );
+    if (result.affectedRows === 0) {
+      return res.status(404).json({ message: "Passenger not found" });
+    }
+    res.json({ message: "Passenger deleted successfully" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Server error" });
+  }
+});
 
 // ===================================================================
 // 🚉 PASSENGER ROUTES
