@@ -1,0 +1,192 @@
+.booking-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  background: #473737;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.booking-container h2 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 25px;
+}
+
+.booking-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.booking-form input,
+.booking-form select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #2f2525;
+  font-size: 15px;
+  transition: 0.2s;
+}
+
+.booking-form input:focus,
+.booking-form select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+.add-btn {
+  grid-column: span 2;
+  padding: 12px;
+  background: linear-gradient(90deg, #007bff, #00b4d8);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.add-btn:hover {
+  background: linear-gradient(90deg, #0056b3, #007bff);
+}
+
+/* === Route Timeline (Responsive Horizontal) === */
+.route-timeline {
+  margin-top: 40px;
+}
+
+.route-timeline h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.horizontal-timeline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow-x: auto;
+  padding: 10px;
+  scrollbar-width: thin;
+  scrollbar-color: #007bff #f1f1f1;
+}
+
+.station {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  min-width: 130px;
+}
+
+.station-dot {
+  width: 18px;
+  height: 18px;
+  background-color: #007bff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.6);
+}
+
+.station-line {
+  position: absolute;
+  top: 9px;
+  left: 50%;
+  width: 100%;
+  height: 3px;
+  background-color: #007bff;
+  z-index: 1;
+}
+.first-ll{
+  color: #2222;
+}
+.station-info {
+  text-align: center;
+  margin-top: 8px;
+  background: #212227;
+  padding: 8px 12px;
+  border-radius: 10px;
+}
+
+/* === Booking List Table === */
+.booking-list {
+  margin-top: 40px;
+  overflow-x: auto;
+}
+
+.booking-list h3 {
+  margin-bottom: 15px;
+}
+
+.booking-list table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.booking-list th,
+.booking-list td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+
+.edit-btn {
+  background-color: #ffc107;
+  color: #291d1d;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 6px;
+  margin-right: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.edit-btn:hover {
+  background-color: #e0a800;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.delete-btn:hover {
+  background-color: #b02a37;
+}
+
+@media (max-width: 600px) {
+  .booking-form {
+    grid-template-columns: 1fr;
+  }
+
+  .add-btn {
+    grid-column: span 1;
+  }
+
+  .horizontal-timeline {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .station-line {
+    width: 3px;
+    height: 50px;
+    left: 8px;
+  }
+
+  .station {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .station-info {
+    text-align: left;
+  }
+}
