@@ -3,7 +3,6 @@
 A full-stack web application for railway ticket booking built using:
 - **Frontend:** React + Vite
 - **Backend:** Node.js + Express
-- 
 - **Database:** SQL (MySQL / PostgreSQL)
 
 ## Folder Structure
